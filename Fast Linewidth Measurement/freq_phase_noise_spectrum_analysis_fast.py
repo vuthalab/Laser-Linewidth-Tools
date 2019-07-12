@@ -69,32 +69,6 @@ alt_nu_rms = np.sqrt( np.sum(W_nu * df) ) # freq domain rms
 print (delta_nu_rms)
 print (alt_nu_rms)
 
-# ## phase noise spectrum plot (super slow version)
-# W_phi = W_nu/f_plus**2
-#
-# print('Calculating linewidth . . .')
-# var_phi = np.zeros(f_plus.shape)
-# for i in range(len(f_plus)):
-#     var_phi[i] = np.trapz(W_phi[f_plus>f_plus[i]],x=f_plus[f_plus>f_plus[i]])
-#
-# print('Plotting . . .')
-# fig = plt.figure(figsize=(11,6))
-# ax = fig.add_subplot(111)
-# ax.loglog(f_plus,np.sqrt(W_phi),color='C0',lw=2)
-# ax.set_ylabel("Phase noise spectral density, $\sqrt{W_\phi(f)}$ [rad/$\sqrt{\mathrm{Hz}}$]",color='C0')
-# ax.set_xlabel("fourier frequency, $f$")
-# ax2 = ax.twinx()
-# ax2.loglog(f_plus,var_phi,color='C1',lw=2)
-# ax2.loglog(f_plus,np.ones(f_plus.shape)/np.pi,'k--',lw=2)
-# ax2.set_ylabel("Phase variance, $\Delta \phi^2 = \int_f^\infty W_\phi(f') \, df'$ [rad$^2$]",color='C1')
-# ax.grid(True)
-#
-# for fmt in ['png','svg','pdf']:
-#     fig.savefig("phase_noise." + fmt,format=fmt)
-#
-# plt.show()
-
-
 ## phase noise spectrum
 f_cut = 2e6                            # ignore frequencies higher than this cutoff
 f_integration_stop = 1e6               # only integrate up to this frequency
